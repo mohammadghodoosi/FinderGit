@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>PageTitle</title>
+    <title>FinderGit</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <div class="navbar-brand fontP mx-sm-5 d-flex align-items-center">
             <img src="img/infinityW.png" class='mx-1' height='25px' width='35px'>
-           HUNDO</div>
+           FinderGit</div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,17 +58,122 @@
 
     <main class="flex-shrink-0">
        <div class="container">
-           <h3 class="border-1 border-dark border-bottom py-3">code</h3>
+           <h3 class="border-1 border-dark border-bottom py-3 text-end">the code of findergit</h3>
          <div class="row row-cols-1 row-cols-sm-2">
              <div class="col-sm-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        alert('a')
+                          //first class
+                class Github{
+                    constructor(){
+                        this.key='2cf3fc54c90cf6de17ad'
+                        this.secure='501280c3c884668d162565ea6eb22ddd11601232'
+                        }
+                    async call(user){
+                    const data=await fetch(`https://api.github.com/users/${user}?client_id=${this.key}&client_secret=${this.secure}`)
+                    const jdata=await data.json()
+                    return jdata
+                    }
+                    }
+
+                //second class
+                  class UI{
+                      show(user){
+                          //html tags does not appear here.
+                          //for complete view go to Git repo please.
+                       result.innerHTML=
+                        <div class="row">
+                        <div class="col-md-3">
+                     <img class="img-fluid mb-2" src="${user.avatar_url}">
+                     <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
+                     </div>
+                      <div class="col-md-9">
+                       <span class="badge badge-primary">Public Repos: ${user.public_repos}</span>
+                     <span class="badge badge-secondary">Public Gists: ${user.public_gists}</span>
+                     <span class="badge badge-success">Followers: ${user.followers}</span>
+                      <span class="badge badge-info">Following: ${user.following}</span>
+                     <br><br>
+                     <ul class="list-group">
+                     <li class="list-group-item">Company: ${user.company}</li>
+                     <li class="list-group-item">Website/Blog: ${user.blog}</li>
+                     <li class="list-group-item">Location: ${user.location}</li>
+                     <li class="list-group-item">Member Since: ${user.created_at}</li>
+                     </ul>
+                     </div>
+                     </div>
+                     <br/>
+                      }
+                     }
+
+                     const search=document.getElementById('search')
+                     const result=document.getElementById('result')
+                     if(search.value==''){
+                     result.innerHTML='<h3 class="text-center">***</h3>'
+                      }
+
+
+                     search.addEventListener('keyup',()=>{
+                     if(search.value==''){
+                       result.innerHTML='<h3 class="text-center">***</h3>'
+                     }else{
+                     const github=new Github
+                      github.call(search.value).then(data=>{
+                     if(data.message=='Not Found'){
+                      result.innerHTML='<h3 class="text-center">profile does not exist...</h3>'
+                     }else{
+                     const ui=new UI
+                     ui.show(data)
+                     }
+                     })
+                     }
+                     })
                     </code>
                 </pre>
              </div>
-             <div class="col-sm-4 order-first order-sm-last align-items-center d-flex">
-                    dfs
+             <div class="col-sm-4 order-first order-sm-last">
+                 <div class="row mt-sm-5 mb-sm-5">
+                     <div class="col mt-sm-5 mb-sm-5">
+                        defining first class which fetch and return data from an external api.
+                     </div>
+                 </div>
+                <div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      
+                    </div>
+                </div>
+                 <div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      defining second class for showing result in the UI.
+                    </div>
+                </div> <div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      
+                    </div>
+                </div>
+                <div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      
+                    </div>
+                </div><div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      
+                    </div>
+                </div><div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      
+                    </div>
+                </div><div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      
+                    </div>
+                </div>
+                 <div class="row mt-sm-5 mb-sm-5">
+                    <div class="col mt-sm-5 mb-sm-5">
+                      defining an event handling for every keyword user types in the field.
+                    </div>
+                </div>
+                 
+                    
              </div>
          </div>
        </div>
